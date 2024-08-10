@@ -76,7 +76,3 @@ async def create_message(message: MessageCreate):
 async def get_messages(chat_id: str):
     messages = await retrieve_messages(chat_id)
     return messages
-
-@router.get("/example")
-async def example_route():
-    return {"message": "This is an example route"}

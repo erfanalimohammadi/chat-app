@@ -7,7 +7,7 @@ class User(BaseModel):
     username: str
     email: EmailStr
     password: str
-    is_online: bool = False  # اضافه کردن فیلد وضعیت آنلاین
+    is_online: bool = False 
 
 class Chat(BaseModel):
     id: Optional[str] = Field(None, alias="_id")

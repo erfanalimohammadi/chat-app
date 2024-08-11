@@ -1,11 +1,16 @@
+from typing import AsyncIterator
+from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorDatabase
+from fastapi import Depends
 from pymongo import MongoClient
-import motor.motor_asyncio
 
-MONGO_DETAILS = "mongodb://localhost:27017"
+DATABASE_URL = "mongodb://localhost:27017"
+DATABASE_NAME = "chat_app"
 
-client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_DETAILS)
-database = client.chat_db
+client = AsyncIOMotorClient(DATABASE_URL)
+database = client[DATABASE_NAME]
 
-user_collection = database.get_collection("users_collection")
-chat_collection = database.get_collection("chats_collection")
-message_collection = database.get_collection("messages_collection")
+def get_db() -> AsyncIterator[AsyncIOMotorDatabase]:
+    try:
+        yield database
+    finally:
+        client.close()

@@ -1,50 +1,38 @@
-import socketio
-from fastapi import FastAPI
-from aiohttp import web
-from app.crud import update_user_status, add_message
-from datetime import datetime
-from app.routes import router
+import json
+from fastapi import APIRouter, Depends, WebSocket, WebSocketDisconnect, HTTPException
+from fastapi.security import OAuth2PasswordBearer
+from jose import JWTError, jwt
+from app.services.connection_manager import ConnectionManager
+from app.config import SECRET_KEY, ALGORITHM
 
-sio = socketio.AsyncServer()
-app = FastAPI()
-sio.attach(app)
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/token")
+router = APIRouter()
+manager = ConnectionManager()
 
-@sio.event
-async def connect(sid, environ):
-    print(f"User connected: {sid}")
+async def get_current_user(token: str = Depends(oauth2_scheme)):
+    credentials_exception = HTTPException(
+        status_code=401,
+        detail="Could not validate credentials",
+        headers={"WWW-Authenticate": "Bearer"},
+    )
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        email: str = payload.get("sub")
+        if email is None:
+            raise credentials_exception
+        return {"email": email}
+    except JWTError:
+        raise credentials_exception
 
-@sio.event
-async def disconnect(sid):
-    print(f"User disconnected: {sid}")
-    await update_user_status(sid, False)
-    await sio.emit('user_status', {'user_id': sid, 'status': 'offline'})
-
-@sio.event
-async def message(sid, data):
-    print(f"Message from {sid}: {data}")
-    chat_id = data['chat_id']
-    user_id = data['user_id']
-    message_text = data['message']
-
-    message_data = {
-        "chat_id": chat_id,
-        "user_id": user_id,
-        "message": message_text,
-        "timestamp": str(datetime.utcnow())
-    }
-    await add_message(message_data)
-    
-    await sio.emit('new_message', message_data, room=chat_id)
-
-@sio.event
-async def user_online(sid):
-    print(f"User online: {sid}")
-    await update_user_status(sid, True)
-    await sio.emit('user_status', {'user_id': sid, 'status': 'online'})
-
-@app.get('/')
-async def index():
-    return {"message": "Socket.IO Server Running"}
-
-app.include_router(router)
-app = socketio.ASGIApp(sio, other_asgi_app=app)
+@router.websocket("/ws/chat/{room_id}")
+async def websocket_endpoint(websocket: WebSocket, room_id: str, token: str = Depends(oauth2_scheme)):
+    user = await get_current_user(token)
+    await manager.connect(websocket)
+    try:
+        while True:
+            data = await websocket.receive_text()
+            message_data = json.loads(data)
+            message_data["user"] = user["email"]
+            await manager.broadcast(json.dumps(message_data))
+    except WebSocketDisconnect:
+        manager.disconnect(websocket)

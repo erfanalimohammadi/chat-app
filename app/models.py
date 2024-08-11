@@ -1,21 +1,46 @@
-from typing import Optional
-from pydantic import BaseModel, EmailStr, Field
-from bson import ObjectId
+from datetime import datetime
+from typing import Optional, List
+from pydantic import BaseModel, EmailStr
 
-class User(BaseModel):
-    id: Optional[str] = Field(None, alias="_id")
-    username: str
+class UserBase(BaseModel):
     email: EmailStr
+    username: str
+    full_name: Optional[str] = None
+
+class UserCreate(UserBase):
     password: str
-    is_online: bool = False 
 
-class Chat(BaseModel):
-    id: Optional[str] = Field(None, alias="_id")
-    participants: list[str]
-    messages: list[dict]
+class UserInDB(UserBase):
+    hashed_password: str
 
-class Message(BaseModel):
-    chat_id: str
-    user_id: str
-    message: str
-    timestamp: Optional[str] = None
+class MessageBase(BaseModel):
+    sender: str
+    content: str
+    timestamp: datetime
+
+class MessageInDB(MessageBase):
+    id: str
+
+class ChatRoomBase(BaseModel):
+    name: str
+    members: List[str]
+
+class ChatRoomInDB(ChatRoomBase):
+    id: str
+    messages: List[MessageInDB]
+
+class UserInDB(BaseModel):
+    email: str
+    hashed_password: str
+    full_name: Optional[str] = None
+
+class MessageInDB(BaseModel):
+    _id: str
+    content: str
+    sender: str
+    timestamp: str
+
+class ChatRoomInDB(BaseModel):
+    _id: str
+    name: str
+    messages: List[MessageInDB]

@@ -1,24 +1,23 @@
+version: '3.8'
 
 services:
   app:
     build: .
-    container_name: chat_app
     ports:
       - "8000:8000"
     volumes:
       - .:/app
     environment:
-      - MONGO_DETAILS=mongodb://mongo:27017
+      - ENV=development
     depends_on:
       - mongo
 
   mongo:
-    image: mongo:6.0
-    container_name: mongodb
+    image: mongo:latest
     ports:
       - "27017:27017"
     volumes:
-      - mongo_data:/data/db
+      - mongo-data:/data/db
 
 volumes:
-  mongo_data:
+  mongo-data:

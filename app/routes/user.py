@@ -1,8 +1,8 @@
 from collections.abc import Mapping
 from typing import Any
 from fastapi import APIRouter
-from chatApp.models import user as user_model
-from chatApp.schemas.user import UserListSchema
+from app.models import user as user_model
+from app.schemas.user import UserListSchema
 
 router = APIRouter()
 

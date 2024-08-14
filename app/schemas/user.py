@@ -1,7 +1,5 @@
 from datetime import datetime
 from pydantic import BaseModel, Field
-from chatApp.utils.object_id import PydanticObjectId
-
 
 class UserCreateSchema(BaseModel):
     username: str

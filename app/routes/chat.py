@@ -1,10 +1,9 @@
 from collections.abc import Mapping
 from typing import Any
 from fastapi import APIRouter, Depends, HTTPException, Path
-from chatApp.config import auth
-from chatApp.models import message, private_room, public_room, user
-from chatApp.schemas.public_room import CreatePublicRoom, GetPublicRoomSchema
-from chatApp.utils.object_id import is_valid_object_id
+from app.config import auth
+from app.models import message, private_chat_room, public_chat_room, user
+from app.schemas.public_room import CreatePublicRoom, GetPublicRoomSchema
 
 router = APIRouter()
 

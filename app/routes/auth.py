@@ -2,10 +2,7 @@ from datetime import timedelta
 from typing import Any
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
-from chatApp.config import auth
-from chatApp.models import user as user_model
-from chatApp.schemas.user import UserCreateSchema
-from chatApp.utils.exceptions import credentials_exception
+from app.models import user as user_model
 
 router = APIRouter()
 

@@ -1,14 +1,16 @@
 from datetime import datetime, timedelta
 from typing import Any
 from fastapi import Depends
-from jose import JWTError, jwt
-from app.models import user as user_model
-
+from jose import JWTError
+from App.config.config import get_settings
+from App.config.logs import logger
+from App.models import user as user_model
+from App.utils import hasher
+from App.utils.exceptions import credentials_exception
 
 settings = get_settings()
 
 
-# JWT settings
 SECRET_KEY = settings.jwt_secret_key.get_secret_value()
 ALGORITHM = settings.jwt_algorithm
 ACCESS_TOKEN_EXPIRE_MINUTES = settings.access_token_expire_minutes
@@ -51,21 +53,19 @@ def parse_token(token: str) -> dict[str, Any]:
         )
         return payload
     except JWTError as e:
-        logger.error(f"JWT error: {e}")  # Log the error for debugging purposes
+        logger.error(f"JWT error: {e}") 
         raise credentials_exception
 
 
 def validate_token(token: str) -> bool:
-  
+    
     try:
-        # Decode the token without validating the signature to check expiration
         payload = jwt.decode(
             token,
             SECRET_KEY,
             algorithms=[ALGORITHM],
             options={"verify_signature": False},
         )
-        # Check if the token is expired
         if (
             payload.get("exp")
             and datetime.fromtimestamp(payload["exp"]) < datetime.now()
@@ -80,7 +80,7 @@ def validate_token(token: str) -> bool:
 async def get_current_user(
     token: str = Depends(hasher.oauth2_scheme),
 ) -> user_model.UserInDB:
-    
+   
     payload = parse_token(token)
     username: str | None = payload.get("username")
 
@@ -92,7 +92,7 @@ async def get_current_user(
         username
     )
 
-    # Raise an exception if no user was found
+    
     if user is None:
         logger.error(f"User with username {username} not found in database.")
         raise credentials_exception
@@ -107,7 +107,7 @@ async def authenticate_user(
         username
     )
 
-    # Return None if no user was found or if password verification fails
+    
     if user is None or not hasher.verify_password(
         password, user.hashed_password
     ):

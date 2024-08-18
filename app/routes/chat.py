@@ -1,9 +1,10 @@
 from collections.abc import Mapping
 from typing import Any
 from fastapi import APIRouter, Depends, HTTPException, Path
-from app.config import auth
-from app.models import message, private_chat_room, public_chat_room, user
-from app.schemas.public_room import CreatePublicRoom, GetPublicRoomSchema
+from App.config import auth
+from App.models import message, private_room, public_room, user
+from App.schemas.public_room import CreatePublicRoom, GetPublicRoomSchema
+from App.utils.object_id import is_valid_object_id
 
 router = APIRouter()
 
@@ -51,7 +52,6 @@ async def get_public_rooms(
     ] = await public_room.fetch_all_public_rooms()
     total_count = len(all_rooms)
 
-    # Calculate pagination indexes
     start_index = (page - 1) * per_page
     end_index = start_index + per_page
 

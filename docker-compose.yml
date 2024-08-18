@@ -3,21 +3,23 @@ version: '3.8'
 services:
   app:
     build: .
+    container_name: fastapi_app
     ports:
       - "8000:8000"
     volumes:
       - .:/app
-    environment:
-      - ENV=development
     depends_on:
       - mongo
+    environment:
+      MONGO_URI: mongodb://mongo:27017/mydatabase
 
   mongo:
-    image: mongo:latest
+    image: mongo:5.0
+    container_name: mongo_db
     ports:
       - "27017:27017"
     volumes:
-      - mongo-data:/data/db
+      - mongo_data:/data/db
 
 volumes:
-  mongo-data:
+  mongo_data:

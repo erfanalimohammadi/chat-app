@@ -1,46 +1,64 @@
-from fastapi import Depends, HTTPException, FastAPI
-from fastapi.security import OAuth2PasswordBearer
-from jose import JWTError, jwt
-from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorDatabase, AsyncIOMotorCollection
-from app.config import SECRET_KEY, ALGORITHM, DATABASE_URL, DATABASE_NAME
-from app.crud import get_user_by_email
-from app.schemas import TokenDataSchema, UserResponseSchema
+from collections.abc import AsyncIterator
+from contextlib import asynccontextmanager
+import uvicorn
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.trustedhost import TrustedHostMiddleware
+from App.config.config import get_settings
+from App.config.database import init_mongo_db, shutdown_mongo_db
+from App.middlewares.request_limit import RequestLimitMiddleware
+from App.routes import auth, chat, user
+from App.sockets import sio_app
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/token")
-app = FastAPI()
+
+settings = get_settings()
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI) -> AsyncIterator[None]:
+    
+    await init_mongo_db(test_db=settings.test_mode)
+    try:
+        yield
+    finally:
+        await shutdown_mongo_db()
+
+
+app = FastAPI(
+    title="FastAPI Chat App",
+    description="A chat application built with FastAPI and socket.io",
+    version="1.0.0",
+    lifespan=lifespan,
+)
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.cors_allow_origins,
+    allow_credentials=settings.cors_allow_credentials,
+    allow_methods=settings.cors_allow_methods,
+    allow_headers=settings.cors_allow_headers,
+)
+app.add_middleware(RequestLimitMiddleware, max_requests=10, window_seconds=1)
+app.add_middleware(
+    TrustedHostMiddleware,
+    allowed_hosts=settings.trusted_hosts,
+)
+
+
+app.include_router(auth.router, prefix="/auth", tags=["auth"])
+app.include_router(chat.router, prefix="/chat", tags=["chat"])
+app.include_router(user.router, prefix="/user", tags=["user"])
 
 
 @app.get("/")
-async def read_root():
-    return {"Hello": "World"}
+async def root() -> dict[str, str]:
+    return {"message": "Welcome to the FastAPI Chat App"}
 
-def verify_token(token: str, credentials_exception) -> TokenDataSchema:
-    try:
-        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        email: str = payload.get("sub")
-        if email is None:
-            raise credentials_exception
-        token_data = TokenDataSchema(email=email)
-    except JWTError:
-        raise credentials_exception
-    return token_data
 
-async def get_db() -> AsyncIOMotorDatabase:
-    client = AsyncIOMotorClient(DATABASE_URL)
-    return client[DATABASE_NAME]
 
-async def get_user_collection(db: AsyncIOMotorDatabase) -> AsyncIOMotorCollection:
-    return db["users"]
+app.mount("/socket.io/", app=sio_app)
 
-async def get_current_user(token: str = Depends(oauth2_scheme),
-                           db: AsyncIOMotorCollection = Depends(get_user_collection)) -> UserResponseSchema:
-    credentials_exception = HTTPException(
-        status_code=401,
-        detail="Could not validate credentials",
-        headers={"WWW-Authenticate": "Bearer"},
-    )
-    token_data = verify_token(token, credentials_exception)
-    user = await get_user_by_email(db, token_data.email)
-    if user is None:
-        raise credentials_exception
-    return user
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

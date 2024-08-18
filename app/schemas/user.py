@@ -1,5 +1,9 @@
 from datetime import datetime
+
 from pydantic import BaseModel, Field
+
+from App.utils.object_id import PydanticObjectId
+
 
 class UserCreateSchema(BaseModel):
     username: str

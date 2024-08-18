@@ -2,7 +2,10 @@ from datetime import timedelta
 from typing import Any
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
-from app.models import user as user_model
+from App.config import auth
+from App.models import user as user_model
+from App.schemas.user import UserCreateSchema
+from App.utils.exceptions import credentials_exception
 
 router = APIRouter()
 

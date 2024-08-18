@@ -1,0 +1,200 @@
+2024-08-18 22:38:43,730 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:39:41,780 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:39:53,983 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:40:04,031 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:42:40,246 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:44:15,049 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:44:42,288 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:44:57,317 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:52:04,578 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:54:22,477 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:55:17,037 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:55:41,516 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:55:42,003 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 22:56:14,880 - ChatApp - INFO - Received request from 127.0.0.1 at 1724009174.880377
+2024-08-18 22:56:23,595 - ChatApp - INFO - Processed request from 127.0.0.1 in 0.0020 seconds
+2024-08-18 22:56:31,617 - ChatApp - INFO - Received request from 127.0.0.1 at 1724009191.6177754
+2024-08-18 22:56:31,618 - ChatApp - INFO - Processed request from 127.0.0.1 in 0.0010 seconds
+2024-08-18 22:56:35,351 - ChatApp - INFO - Received request from 127.0.0.1 at 1724009195.351068
+2024-08-18 22:56:35,377 - ChatApp - INFO - Processed request from 127.0.0.1 in 0.0250 seconds
+2024-08-18 22:57:02,763 - ChatApp - INFO - Received request from 127.0.0.1 at 1724009222.7635484
+2024-08-18 22:57:02,765 - ChatApp - INFO - Processed request from 127.0.0.1 in 0.0010 seconds
+2024-08-18 22:57:06,653 - ChatApp - INFO - Received request from 127.0.0.1 at 1724009226.6535726
+2024-08-18 22:57:06,654 - ChatApp - INFO - Processed request from 127.0.0.1 in 0.0000 seconds
+2024-08-18 22:57:14,594 - ChatApp - INFO - Received request from 127.0.0.1 at 1724009234.594987
+2024-08-18 22:57:14,596 - ChatApp - INFO - Processed request from 127.0.0.1 in 0.0020 seconds
+2024-08-18 22:57:43,859 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 22:57:45,126 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:57:45,445 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 22:57:45,446 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 22:57:45,448 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 22:57:45,449 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 22:57:45,456 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 22:57:48,418 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 22:57:49,933 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:57:50,268 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 22:57:50,270 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 22:57:50,271 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 22:57:50,272 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 22:57:50,276 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 22:57:50,611 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 22:57:51,782 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:57:52,164 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 22:57:52,166 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 22:57:52,168 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 22:57:52,169 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 22:57:52,173 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 22:57:57,456 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 22:57:58,845 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:57:59,170 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 22:57:59,172 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 22:57:59,173 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 22:57:59,174 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 22:57:59,178 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 22:58:10,820 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 22:58:12,219 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:58:12,534 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 22:58:12,535 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 22:58:12,537 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 22:58:12,539 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 22:58:12,544 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 22:58:12,546 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 22:58:14,106 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:58:14,489 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 22:58:14,492 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 22:58:14,494 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 22:58:14,496 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 22:58:14,503 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 22:58:15,389 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 22:58:16,503 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:58:16,791 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 22:58:16,793 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 22:58:16,794 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 22:58:16,795 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 22:58:16,799 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 22:58:17,670 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 22:58:18,807 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:58:19,169 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 22:58:19,171 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 22:58:19,172 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 22:58:19,175 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 22:58:19,180 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 22:58:19,835 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 22:58:21,220 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:58:21,609 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 22:58:21,611 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 22:58:21,612 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 22:58:21,613 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 22:58:21,618 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 22:58:21,620 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 22:58:23,087 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:58:23,419 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 22:58:23,421 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 22:58:23,422 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 22:58:23,424 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 22:58:23,428 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 22:58:24,867 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 22:58:25,979 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:58:26,264 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 22:58:26,265 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 22:58:26,266 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 22:58:26,268 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 22:58:26,271 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 22:58:28,142 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 22:58:29,357 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:58:29,652 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 22:58:29,653 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 22:58:29,654 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 22:58:29,656 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 22:58:29,660 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 22:59:11,140 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 22:59:12,203 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:59:12,578 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 22:59:12,581 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 22:59:12,582 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 22:59:12,583 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 22:59:12,588 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 22:59:54,063 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 22:59:55,190 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:59:55,580 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 22:59:55,582 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 22:59:55,583 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 22:59:55,583 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 22:59:55,587 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 22:59:55,916 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 22:59:57,130 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:59:57,444 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 22:59:57,445 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 22:59:57,446 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 22:59:57,448 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 22:59:57,451 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 22:59:57,453 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 22:59:58,998 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 22:59:59,317 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 22:59:59,318 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 22:59:59,319 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 22:59:59,320 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 22:59:59,325 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 23:00:00,965 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 23:00:02,396 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 23:00:02,685 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 23:00:02,686 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 23:00:02,687 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 23:00:02,689 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 23:00:02,692 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 23:00:03,904 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 23:00:05,194 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 23:00:05,502 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 23:00:05,505 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 23:00:05,507 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 23:00:05,509 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 23:00:05,512 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 23:00:06,269 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 23:00:07,504 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 23:00:07,786 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 23:00:07,788 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 23:00:07,790 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 23:00:07,791 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 23:00:07,795 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 23:00:11,090 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 23:00:12,380 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 23:00:12,680 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 23:00:12,682 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 23:00:12,683 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 23:00:12,684 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 23:00:12,688 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 23:00:15,426 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 23:00:16,818 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 23:00:17,135 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 23:00:17,137 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 23:00:17,138 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 23:00:17,139 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 23:00:17,145 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 23:00:19,004 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 23:00:20,150 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 23:00:20,459 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 23:00:20,460 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 23:00:20,462 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 23:00:20,463 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 23:00:20,467 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 23:05:04,264 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 23:16:25,319 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 23:16:25,629 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 23:16:25,630 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 23:16:25,632 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 23:16:25,633 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 23:16:25,637 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 23:16:33,441 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 23:18:15,058 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 23:18:15,367 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 23:18:15,369 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 23:18:15,370 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 23:18:15,372 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 23:18:15,375 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-18 23:19:24,356 - App.config.database - INFO - Closed MongoDB connection
+2024-08-18 23:19:31,569 - ChatApp - INFO - Logging configuration is set up.
+2024-08-18 23:19:31,876 - App.config.database - INFO - Collection 'users' already exists.
+2024-08-18 23:19:31,878 - App.config.database - INFO - Collection 'messages' already exists.
+2024-08-18 23:19:31,881 - App.config.database - INFO - Collection 'public_rooms' already exists.
+2024-08-18 23:19:31,883 - App.config.database - INFO - Collection 'private_rooms' already exists.
+2024-08-18 23:19:31,889 - App.config.database - INFO - Connected to MongoDB  database

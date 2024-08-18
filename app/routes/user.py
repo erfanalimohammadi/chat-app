@@ -1,8 +1,8 @@
 from collections.abc import Mapping
 from typing import Any
 from fastapi import APIRouter
-from app.models import user as user_model
-from app.schemas.user import UserListSchema
+from App.models import user as user_model
+from App.schemas.user import UserListSchema
 
 router = APIRouter()
 

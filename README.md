@@ -5,13 +5,11 @@
 1. [Overview](#overview)
 2. [Features](#features)
 3. [Technologies Used](#technologies-used)
-4. [Installation and Usage](#installation-and-usage)
-   - [Setup and Running](#setup-and-running)
-   - [Docker Setup](#docker-setup)
-5. [Code Explanation](#code-explanation)
-6. [Contributing](#contributing)
-7. [License](#license)
-8. [Contact](#contact)
+4. [Project Structure](#Project_Structure).
+5. [Installation and Usage](#installation-and-usage)
+6. [Code Explanation](#code-explanation)
+7. [Contributing](#contributing)
+9. [Contact](#contact)
 
 
 
@@ -102,7 +100,7 @@ cd chat-app
 
 ### Setup and Running
 
-1. ###Set up the Virtual Environment:
+1. ### Set up the Virtual Environment:
 
 Ensure you have `virtualenv` installed. If not, install it using:
    ```bash
@@ -116,7 +114,7 @@ Activate the virtual environment:
   ```bash
     venv\Scripts\activate
   ```
-2. ###Install Dependencies:
+2. ### Install Dependencies:
 Once the virtual environment is activated, install the required Python packages:
   ```bash
   pip install -r requirements.txt
@@ -150,7 +148,7 @@ Start the application in a Docker container:
   ```
 The application will be available at ***http://127.0.0.1:8000*** inside the container.
 
-3. ###Logging and Configuration:
+3. ### Logging and Configuration:
 
 Logs are stored in the logs/ directory. Configuration settings can be adjusted in config/config.py.
 
@@ -282,7 +280,8 @@ Please adhere to the following code of conduct to ensure a positive and producti
 
 ### Reporting Issues
 
-If you encounter any bugs or issues, please report them by opening an issue on GitHub. Provide as much detail as possible to help us understand and address the problem.
+If you encounter any bugs or issues, please report them by opening an issue on GitHub or sending an email to my [email](mailto:erfanalimohammadi@outlook.com). Provide as much detail as possible to help us understand and address the problem.
+You can also reach me via [LinkedIn](https://www.linkedin.com/in/erfanalimohammadi/)
 
 ### Acknowledgments
 

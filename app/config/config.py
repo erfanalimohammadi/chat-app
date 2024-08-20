@@ -13,11 +13,11 @@ class Settings(BaseSettings):
 
     
     database_url: str = Field(default="mongodb://localhost:27017")
-    database_name: str = Field(default="chat_app")
+    database_name: str = Field(default="mydatabase")
     max_pool_size: int = 10
     min_pool_size: int = 1
     test_database_url: str = Field(default="mongodb://localhost:27017")
-    test_database_name: str = Field(default="test_chat_app")
+    test_database_name: str = Field(default="test_mydatabasep")
     test_mode: bool = Field(default=False)
 
     

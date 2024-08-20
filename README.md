@@ -1,17 +1,5 @@
 # Chat Application
 
-## Table of Contents
-
-1. [Overview](#overview)
-2. [Features](#features)
-3. [Technologies Used](#technologies-used)
-4. [Project Structure](#Project_Structure).
-5. [Installation and Usage](#installation-and-usage)
-6. [Code Explanation](#code-explanation)
-7. [Contributing](#contributing)
-9. [Contact](#contact)
-
-
 
 ## Overview
 
@@ -56,34 +44,7 @@ The Chat Application is built using a combination of modern technologies to ensu
 
 These technologies work together to create a robust and efficient chat application with real-time capabilities and secure user interactions.
 
-## Project Structure
 
-The project structure is as follows:
-
-Chatapp/
-├── venv/ # Virtual environment for the project
-├── logs/ # Log files
-├── app/
-│ ├── pycache/ # Python cache files
-│ ├── config/ # Configuration files
-│ │ ├── auth.py # Authentication and token functions
-│ │ ├── config.py # Project configuration settings
-│ │ └── logs.py # Logging configuration
-│ ├── middlewares/ # Middleware components
-│ │ └── request_limit.py # Request rate limiting middleware
-│ ├── models/ # Data models
-│ ├── routes/ # API routes
-│ ├── schemas/ # Data schemas
-│ ├── services/ # Service components
-│ ├── utils/ # Utility functions
-│ ├── init.py # Initialization file for the module
-│ ├── main.py # Main FastAPI application file
-│ └── sockets.py # Socket management
-├── docker-compose.yml # Docker Compose configuration
-├── Dockerfile # Dockerfile for building the Docker image
-├── entrypoint.sh # Docker entrypoint script
-├── readme.md # This README file
-└── requirements.txt # Python dependencies
 
 ## Installation and Usage
 

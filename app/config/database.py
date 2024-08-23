@@ -8,6 +8,8 @@ from motor.motor_asyncio import (
 from pymongo import ASCENDING, DESCENDING, IndexModel
 from pymongo.errors import CollectionInvalid
 from .config import get_settings
+from pymongo.collection import Collection
+
 
 logger = logging.getLogger(__name__)
 settings = get_settings()
@@ -268,3 +270,11 @@ def get_private_rooms_collection() -> AsyncIOMotorCollection:
     if mongo_db.private_rooms_collection is None:
         raise RuntimeError("Private rooms collection is not initialized.")
     return mongo_db.private_rooms_collection
+
+
+def get_files_collection() -> Collection:
+    if mongo_db is None:
+        raise RuntimeError("MongoDB instance is not initialized.")
+    if mongo_db.files_collection is None:
+        raise RuntimeError("Files collection is not initialized.")
+    return mongo_db.files_collection

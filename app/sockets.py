@@ -9,6 +9,7 @@ from App.models import user as user_model
 import io
 import os
 import aiofiles
+from fastapi import FastAPI
 
 
 settings = get_settings()
@@ -44,6 +45,8 @@ def verify_token(token: str) -> user_model.UserInDB | None:
     except JWTError:
         return None
 
+def handle_socket(app: FastAPI) -> None:
+    app.mount("/socket.io", sio_app)
 
 @sio_server.event
 async def connect(sid: str, environ: dict, auth: dict) -> None:

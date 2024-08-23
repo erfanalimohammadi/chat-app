@@ -198,3 +198,13 @@
 2024-08-18 23:19:31,881 - App.config.database - INFO - Collection 'public_rooms' already exists.
 2024-08-18 23:19:31,883 - App.config.database - INFO - Collection 'private_rooms' already exists.
 2024-08-18 23:19:31,889 - App.config.database - INFO - Connected to MongoDB  database
+2024-08-23 11:38:52,719 - ChatApp - INFO - Logging configuration is set up.
+2024-08-23 11:40:16,661 - ChatApp - INFO - Logging configuration is set up.
+2024-08-23 11:42:19,673 - ChatApp - INFO - Logging configuration is set up.
+2024-08-23 11:43:34,897 - ChatApp - INFO - Logging configuration is set up.
+2024-08-23 11:45:19,714 - ChatApp - INFO - Logging configuration is set up.
+2024-08-23 11:49:44,872 - ChatApp - INFO - Logging configuration is set up.
+2024-08-23 11:59:30,579 - ChatApp - INFO - Logging configuration is set up.
+2024-08-23 12:08:03,322 - ChatApp - INFO - Logging configuration is set up.
+2024-08-23 12:08:33,715 - App.config.database - ERROR - Could not create collection 'users': localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 66c84a6ba0758b8f1dc3c973, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2024-08-23 12:08:33,715 - App.config.database - ERROR - Could not connect to MongoDB: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 66c84a6ba0758b8f1dc3c973, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>

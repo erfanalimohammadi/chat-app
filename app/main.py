@@ -7,7 +7,7 @@ from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from App.config.config import get_settings
 from App.config.database import init_mongo_db, shutdown_mongo_db
 from App.middlewares.request_limit import RequestLimitMiddleware
-from App.routes import auth, chat, user
+from App.routes import auth, chat, user, files
 from App.sockets import sio_app, handle_socket
 
 

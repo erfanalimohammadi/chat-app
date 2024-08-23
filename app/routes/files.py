@@ -1,13 +1,14 @@
-from fastapi import APIRouter, File, UploadFile, HTTPException
-from App.models.file import File, FileInDB
+from fastapi import APIRouter, File as FastAPIFile, UploadFile, HTTPException
+from App.models.file import File as FileModel, FileInDB
 from App.config.database import get_files_collection
 from App.utils.object_id import PydanticObjectId
 import aiofiles
+from fastapi.responses import FileResponse
 
 router = APIRouter()
 
 @router.post("/upload")
-async def upload_file(room_id: str, room_type: str, user_id: str, file: UploadFile = File(...)):
+async def upload_file(room_id: str, room_type: str, user_id: str, file: UploadFile = FastAPIFile(...)):
     files_collection = get_files_collection()
     
     try:
@@ -18,7 +19,7 @@ async def upload_file(room_id: str, room_type: str, user_id: str, file: UploadFi
             await f.write(content)
 
         # Create file metadata
-        file_metadata = File(
+        file_metadata = FileModel(
             user_id=PydanticObjectId(user_id),
             room_id=PydanticObjectId(room_id),
             room_type=room_type,

@@ -21,7 +21,7 @@ class Settings(BaseSettings):
     max_pool_size: int = 10
     min_pool_size: int = 1
     test_database_url: str = Field(default="mongodb://localhost:27017")
-    test_database_name: str = Field(default="test_mydatabasep")
+    test_database_name: str = Field(default="test_mydatabase")
     test_mode: bool = Field(default=False)
 
     

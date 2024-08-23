@@ -3,10 +3,14 @@ from pathlib import Path
 from dotenv import load_dotenv
 from pydantic import Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
+import os
+
+
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 load_dotenv(BASE_DIR / ".env")
-
+UPLOAD_DIR = os.getenv("UPLOAD_DIR", "uploaded_files/")
 
 class Settings(BaseSettings):
     debug: bool = Field(default=False)

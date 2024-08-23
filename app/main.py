@@ -8,7 +8,7 @@ from App.config.config import get_settings
 from App.config.database import init_mongo_db, shutdown_mongo_db
 from App.middlewares.request_limit import RequestLimitMiddleware
 from App.routes import auth, chat, user
-from App.sockets import sio_app
+from App.sockets import sio_app, handle_socket
 
 
 settings = get_settings()
@@ -49,6 +49,7 @@ app.add_middleware(
 app.include_router(auth.router, prefix="/auth", tags=["auth"])
 app.include_router(chat.router, prefix="/chat", tags=["chat"])
 app.include_router(user.router, prefix="/user", tags=["user"])
+app.include_router(files.router, prefix="/files", tags=["files"])
 
 
 @app.get("/")

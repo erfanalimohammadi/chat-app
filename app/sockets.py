@@ -1,10 +1,15 @@
-from typing import Any
+from typing import Any, Dict
 import socketio
+from jose import JWTError, jwt
 from App.config.config import get_settings
 from App.config.logs import get_logger
 from App.models import message as message_model
 from App.models import private_room, public_room
 from App.models import user as user_model
+import io
+import os
+import aiofiles
+
 
 settings = get_settings()
 
@@ -28,10 +33,33 @@ class GlobalState:
 global_state = GlobalState()
 
 
+def verify_token(token: str) -> user_model.UserInDB | None:
+    try:
+        payload = jwt.decode(token, settings.secret_key, algorithms=[settings.algorithm])
+        user_id: str = payload.get("sub")
+        if user_id is None:
+            return None
+        user: user_model.UserInDB | None = user_model.fetch_user_by_id(user_id)
+        return user
+    except JWTError:
+        return None
+
+
 @sio_server.event
 async def connect(sid: str, environ: dict, auth: dict) -> None:
+    token = auth.get("token")
+    if not token:
+        await sio_server.disconnect(sid)
+        return
+
+    user = verify_token(token)
+    if user is None:
+        await sio_server.disconnect(sid)
+        return
+
+    environ['user_id'] = user.id
     global_state.all_clients += 1
-    print(f"Client connected: {sid}")
+    print(f"Client connected: {sid}, User ID: {user.id}")
     print(f"Number of clients connected: {global_state.all_clients}")
     await sio_server.emit("client_count", data=global_state.all_clients)
 
@@ -70,7 +98,7 @@ async def joining_public_room(sid: str, data: dict[str, Any]) -> None:
         await sio_server.emit("room_count", data=room_members, room=room_id)
         await sio_server.emit("user_joined", data=user_id, room=room_id)
     else:
-        await sio_server.emit("error", data="report", to=sid)
+        await sio_server.emit("error", data=report, to=sid)
 
 
 @sio_server.event
@@ -214,3 +242,31 @@ async def send_private_message(sid: str, data: dict[str, Any]) -> None:
     print(
         f"Private message sent from {user_id} to room {room_id}: {message_sent}"
     )
+
+
+@sio_server.event
+async def upload_file(sid: str, data: Dict[str, Any]) -> None:
+    room_id = data.get("room_id")
+    user_id = data.get("user_id")
+    file_info = data.get("file_info")
+    file_chunk = data.get("file_chunk") 
+
+    if not isinstance(room_id, str) or not isinstance(user_id, str):
+        await sio_server.emit("error", data="Invalid room_id or user_id", room=sid)
+        return
+
+    if not isinstance(file_info, dict) or not file_chunk:
+        await sio_server.emit("error", data="Invalid file_info or file_chunk", room=sid)
+        return
+
+    file_name = file_info.get("filename")
+    file_size = file_info.get("file_size")
+    upload_id = file_info.get("upload_id")
+
+
+    file_path = f"uploads/{upload_id}_{file_name}"
+    async with aiofiles.open(file_path, 'ab') as file:
+        await file.write(file_chunk)
+
+    await sio_server.emit("file_uploaded", data={"file_url": file_path, "filename": file_name}, room=room_id)
+    print(f"File uploaded: {file_path}")

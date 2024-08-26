@@ -1,6 +1,8 @@
 # Chat Application
 
 
+
+
 ## Overview
 
 The Chat Application project is a modern chat solution developed using FastAPI and MongoDB. This application supports a range of features designed to facilitate effective communication:

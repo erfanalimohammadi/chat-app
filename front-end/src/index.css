@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.gradient-shadow-box{
+    @apply text-white;
+    position: relative;
+    z-index: 1;
+  }
+  
+.gradient-shadow-box::before {
+    @apply text-white;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: linear-gradient(45deg, #40C4FF, #03A9F4);
+    filter: blur(10px);
+}
+

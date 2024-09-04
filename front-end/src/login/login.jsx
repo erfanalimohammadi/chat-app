@@ -2,29 +2,54 @@ import React , { useState , useEffect} from 'react';
 import { Link, useNavigate } from "react-router-dom"
 import ReactDOM from "react-dom/client";
 import { FaCheck } from "react-icons/fa";
+import VectorStroke from './Vector-(Stroke).png';
+import England from './countreis/England.png'
+
 
 
 export default function Login(){
     const [isfocus , setIsFocus] = useState(false)
-    const navigate = useNavigate()
-
-
     const [isChecked, setIsChecked] = useState(false);
+    const navigate = useNavigate()
+    const [inputValue , setInputValue] = useState('')
+    const [selctValue , setSelctValue] = useState('iran')
+    const [extension , setExtension] = useState('+98')
+    const [user , setUser] = useState({
+         phoneNumber: "" , 
+         nationality : ""
+    })
     
+    function handleSelectBox(e){
+        setUser({
+            ...user,
+            nationality: e.target.value
+        })
+        if(e.target.value === "american"){
+            setExtension("+1")
+        }else if (e.target.value === 'england'){
+            setExtension("+44")
+        }else if (e.target.value === "iran"){
+            setExtension("+98")
+        }
+    }
+
+    function handleChangeValue(e){
+        let value = e.target.value
+        setUser({
+            ...user,
+            phoneNumber: e.target.value
+        })
+    }
     function handleCheckboxChange() {
         setIsChecked(!isChecked);
-    };
-
-    const [inputValue , setInputValue] = useState('')
-    const handleInputChange = (e) => {
-        setInputValue(e.target.value);
     };
     const isButtonEnabled = inputValue.trim() !== '' && isChecked;
 
     function handleSubmit(e) {
         e.preventDefault();
-        if(inputValue.trim() !== '' && isChecked){
-            navigate('/')
+        if(user.phoneNumber.trim() !== '' && isChecked){
+            console.log(user)
+            navigate('/enterd/login/OTPCheck')
         }else{
             alert("There is problem!")
         }
@@ -44,7 +69,7 @@ export default function Login(){
       };
     }, []);
 
-    return(
+    return (
         <div className='min-h-screen'>
             <div class="relative min-h-screen bg-white">
                 <div class="absolute top-0 left-0 w-full h-2/5 bg-[#03A9F4] rounded-br-full"></div>
@@ -67,16 +92,15 @@ export default function Login(){
                             <div className='flex flex-col justify-between items-start w-[300px] px-1 gap-y-6 mt-6'>
                                 <div className={`${isfocus ? "border-b-[3px] border-[#40C4FF] border-solid scale-x-105" : "border-b-[3px] border-black border-solid" }
                                 flex py-2 w-[300px] flex-row justify-start items-center gap-x-4 transition-all duration-300 ease-linear`}>
-                                    <select required className='text-[24px] border-none outline-none tracking-[2px] text-black' value={"text"} name="countrey" id="countrey">
-                                        <option value="test">test</option>
-                                        <option value="test">test</option>
-                                        <option value="test">test</option>
+                                    <select name='nationality' onChange={(e)=> handleSelectBox(e)} required className='text-[24px] w-[80px] border-none outline-none text-black' id="countrey">
+                                        <option value="iran">iran</option>
+                                        <option value="american">american</option>
+                                        <option value="england">england</option>
                                     </select>
-                                        <span className='text-[24px] text-black'>(+98)</span>
+                                        <span className='text-[24px] text-black'>{extension}</span>
                                     <input
-                                    value={inputValue}
-                                    onChange={handleInputChange}
-                                    
+                                    value={user.phoneNumber}
+                                    onChange={(e)=>handleChangeValue(e)}
                                     onFocus={() => setIsFocus(true)}
                                     onBlur={() => setIsFocus(false)}
                                     className={`border-none outline-none text-24 w-44 py-2 px-1 text-black text-[24px]`} placeholder='00 000 0000' type="number" />
@@ -101,8 +125,8 @@ export default function Login(){
                                     <button
                                         onClick={(e) =>handleSubmit(e) }
                                         disabled={!isButtonEnabled}
-                                        className={`p-2 w-full text-white rounded ${isButtonEnabled ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-400 cursor-not-allowed'}`}>
-                                        Submit
+                                        className={` border-none outline-none flex flex-row justify-center items-center w-[60px] h-[60px] text-white rounded-[30px] ${isButtonEnabled ? 'bg-[#40C4FF]' : 'bg-[#afe6ff] cursor-not-allowed'}`}>
+                                        <img src={VectorStroke} alt="icon" />
                                     </button>
                                 </div>
                             </div>

@@ -14,7 +14,7 @@ const Singup = ({ onRegister }) => {
             phone,
             password,
         };
-        onRegister(userInfo); // ارسال اطلاعات کاربر به تابع handleRegister
+        onRegister(userInfo); 
     };
 
     return (

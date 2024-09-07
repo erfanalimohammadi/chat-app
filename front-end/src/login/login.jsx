@@ -16,7 +16,8 @@ export default function Login(){
     const [extension , setExtension] = useState('+98')
     const [user , setUser] = useState({
          phoneNumber: "" , 
-         nationality : ""
+         nationality : "iran"
+         // we are going to save the users information on the database through the Back-end , soon....
     })
     
     function handleSelectBox(e){
@@ -43,12 +44,11 @@ export default function Login(){
     function handleCheckboxChange() {
         setIsChecked(!isChecked);
     };
-    const isButtonEnabled = inputValue.trim() !== '' && isChecked;
+    const isButtonEnabled = user.phoneNumber.trim() !== '' && isChecked;
 
     function handleSubmit(e) {
         e.preventDefault();
         if(user.phoneNumber.trim() !== '' && isChecked){
-            console.log(user)
             navigate('/enterd/login/OTPCheck')
         }else{
             alert("There is problem!")

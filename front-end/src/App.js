@@ -12,7 +12,7 @@ import OTPCheck from './login/OTP';
 
 function App() {
 
-
+ 
   const [isLoading , setIsLoading] = useState(true)
 
   useEffect(()=>{
@@ -44,5 +44,5 @@ function App() {
 
   }
 }
-
+// we are going to change the address of the pages and secure them using Back-end , soon....
 export default App;

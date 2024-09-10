@@ -3,8 +3,9 @@ import { Link, useNavigate} from "react-router-dom"
 import ReactDOM from "react-dom/client";
 import ClockCircle from './ClockCircle.png'
 import VectorStroke from './Vector-(Stroke).png';
+import { HiArrowSmallLeft } from "react-icons/hi2";
 
-export default function OTPCheck(){
+export default function OTPCheck({ type }){
     // We are going to enter the users information on other pages through Back-end , soon...
     // also we will create the OTP part with Back-end but now we use the fake OTP(1233)
 
@@ -64,19 +65,29 @@ export default function OTPCheck(){
         // 
         const handleSubmit = (e) => {
             e.preventDefault()
-          const enteredOtp = otp.join('');
-          if (enteredOtp === '1233') {
-            //
-            navigate('/');
-          } else {
-            //
-            setIsError(true);
-          }
+            if (type === 'login'){
+              const enteredOtp = otp.join('');
+              if (enteredOtp === '1233') {
+                //
+                navigate('/');
+              } else {
+                //
+                setIsError(true);
+              }
+            }else{
+              const enteredOtp = otp.join('');
+              if (enteredOtp === '1233') {
+                //
+                navigate('/create/profile');
+              } else {
+                //
+                setIsError(true);
+              }
+            }
         };
         /////////////////////////////////////////////////////
         // this oart is for the Resend button for the form to appear
         const [isAppear , setIsAppear] = useState(false) 
-
     return(
         <div>
             <div className='min-h-screen'>
@@ -84,9 +95,9 @@ export default function OTPCheck(){
                     <div class="absolute top-0 left-0 w-full h-2/5 bg-[#03A9F4] rounded-br-full"></div>
                     <div class="relative z-10 p-8">
                         <div className='flex flex-row w-full px-2 justify-between items-center'>
-                            <h2 className='text-[35px] font-bold text-white'>Login</h2>
-                            <Link to={"/enterd/login"} className='rounded-[28px] bg-slate-200 text-black text-[18px] py-2 px-4 translate-y-1'>
-                                Register
+                        <h2 className='text-[35px] font-bold text-white'>{type === 'login' ? "Login" : "Register" }</h2>
+                            <Link to={type === 'login' ? "/enterd/Register" : "/enterd/login"}  className='rounded-[28px] bg-slate-200 text-black text-[18px] py-2 px-4 translate-y-1'>
+                                {type === 'login' ? "Register" : "Login"}
                             </Link>
                         </div>
                         

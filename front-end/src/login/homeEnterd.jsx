@@ -36,7 +36,7 @@ export default function Enterd(){
                             </div>
                             <div className='flex flex-col justify-center items-center mt-20'>
                                 <h4 className='text-[25px] font-bold tracking-[5%] text-justify text-[#40C4FF]'>if you don't</h4>
-                                <Link to={"/enterd/sing-up"} className={`flex flex-row justify-center items-center w-52 text-white font-bold border-none outline-none bg-gradient-to-r from-[#40C4FF] to-[#03A9F4]
+                                <Link to={"/enterd/Register"} className={`flex flex-row justify-center items-center w-52 text-white font-bold border-none outline-none bg-gradient-to-r from-[#40C4FF] to-[#03A9F4]
                                 py-2 rounded-[30px] text-[20px] ${windowHeight > 740 ? "mt-10" : "mt-5"} transition-all duration-300 ease-linear gradient-shadow-box`}>
                                     Click Here for create
                                 </Link>

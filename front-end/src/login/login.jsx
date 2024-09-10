@@ -76,7 +76,7 @@ export default function Login(){
                 <div class="relative z-10 p-8">
                     <div className='flex flex-row w-full px-2 justify-between items-center'>
                         <h2 className='text-[35px] font-bold text-white'>Login</h2>
-                        <Link to={"/enterd"} className='rounded-[28px] bg-slate-200 text-black text-[18px] py-2 px-4 translate-y-1'>
+                        <Link to={"/enterd/Register"} className='rounded-[28px] bg-slate-200 text-black text-[18px] py-2 px-4 translate-y-1'>
                             Register
                         </Link>
                     </div>

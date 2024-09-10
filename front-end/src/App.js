@@ -4,7 +4,7 @@ import './index.css';
 import Loading from './Start-app/loading';
 import Welcome from './Start-app/startapp';
 import Login from './login/login';
-import Singup from './login/sing-up';
+import Register from './login/sing-up';
 import Main from './main-peg';
 import Enterd from './login/homeEnterd';
 import OTPCheck from './login/OTP';
@@ -36,8 +36,9 @@ function App() {
                 <Route path='/enterd' element={<Enterd/>} />
                 <Route path='/welcome' element={<Welcome/>} />
                 <Route path='/enterd/login' element={<Login/>} />
-                <Route path='/enterd/sing-up' element={<Singup/>} />
-                <Route path='/enterd/login/OTPCheck' element={<OTPCheck/>}/>
+                <Route path='/enterd/Register' element={<Register/>} />
+                <Route path='/enterd/login/OTPCheck' element={<OTPCheck type="login" />}/>
+                <Route path='/enterd/Register/OTPCheck' element={<OTPCheck type="Register" />}/>
               </Routes>
          </BrowserRouter>
     )

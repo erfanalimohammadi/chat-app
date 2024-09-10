@@ -16,7 +16,8 @@ export default function Login(){
     const [extension , setExtension] = useState('+98')
     const [user , setUser] = useState({
          phoneNumber: "" , 
-         nationality : ""
+         nationality : "iran"
+         // we are going to save the users information on the database through the Back-end , soon....
     })
     
     function handleSelectBox(e){
@@ -43,12 +44,11 @@ export default function Login(){
     function handleCheckboxChange() {
         setIsChecked(!isChecked);
     };
-    const isButtonEnabled = inputValue.trim() !== '' && isChecked;
+    const isButtonEnabled = user.phoneNumber.trim() !== '' && isChecked;
 
     function handleSubmit(e) {
         e.preventDefault();
         if(user.phoneNumber.trim() !== '' && isChecked){
-            console.log(user)
             navigate('/enterd/login/OTPCheck')
         }else{
             alert("There is problem!")
@@ -76,7 +76,7 @@ export default function Login(){
                 <div class="relative z-10 p-8">
                     <div className='flex flex-row w-full px-2 justify-between items-center'>
                         <h2 className='text-[35px] font-bold text-white'>Login</h2>
-                        <Link to={"/enterd"} className='rounded-[28px] bg-slate-200 text-black text-[18px] py-2 px-4 translate-y-1'>
+                        <Link to={"/enterd/Register"} className='rounded-[28px] bg-slate-200 text-black text-[18px] py-2 px-4 translate-y-1'>
                             Register
                         </Link>
                     </div>
